@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cute+Font&display=swap");
+:root {
+  /* Color */
+  --orange-color: #ffa000;
+  --white-color: #fff;
+  --black-color: #000;
+  --background-color: #34495e;
+
+  /* Space */
+
+  /* Font Size */
+
+  /* Font Family */
+  --font-family-bold: "Black Han Sans", sans-serif;
+  --font-family-cute: "Cute Font", cursive;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  color: var(--black-color);
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+table {
+  border: 2px solid var(--black-color);
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  border: 2px solid var(--black-color);
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header .title {
+  color: var(--white-color);
+  font-family: var(--font-family-bold);
+  font-size: 32px;
+}
+
+main {
+  margin-top: 10px;
+  min-height: 300px;
+  min-width: 300px;
+  padding: 20px;
+  background-color: var(--white-color);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
