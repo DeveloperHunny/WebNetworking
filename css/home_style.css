@@ -16,6 +16,15 @@
   --font-family-cute: "Cute Font", cursive;
 }
 
+button,
+button:focus {
+  cursor: pointer;
+}
+
+ul li {
+  list-style: none;
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -37,6 +46,12 @@ th,
 td {
   padding: 8px;
   border: 2px solid var(--black-color);
+}
+
+main table tr:not(:nth-child(1)):hover {
+  color: var(--white-color);
+  background-color: turquoise;
+  cursor: pointer;
 }
 
 .container {
@@ -65,4 +80,89 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/*===========================================*/
+/*================ Popup Layer ==============*/
+/*===========================================*/
+
+.layerDim {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-family-cute);
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.layerDim .bgClass {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.layerDim .popUp {
+  position: absolute;
+  background-color: var(--white-color);
+  padding: 10px 100px;
+  height: 50%;
+  z-index: 2;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.layerDim .popUp .title {
+  font-family: var(--font-family-bold);
+  font-size: 45px;
+  position: absolute;
+  top: 30px;
+}
+
+.layerDim .popUp form label {
+  display: inline-block;
+  width: 60px;
+  text-align: right;
+}
+
+.layerDim .popUp form input {
+  size: 10;
+  margin-bottom: 15px;
+}
+
+.layerDim .popUp button {
+  font-family: var(--font-family-cute);
+  font-size: 30px;
+  font-weight: 900;
+  border: 2px solid var(--black-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.layerDim .popUp #closeBtn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.layerDim .popUp form #submitBtn {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
 }

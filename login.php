@@ -26,9 +26,10 @@
         else{ //check id and pw in database;
             $id = $_POST['id'];
             $pw = $_POST['pw'];
-            $sql = "SELECT id, pw FROM clients WHERE id = $id AND pw = $pw";
+            $sql = "SELECT id, pw FROM clients WHERE id = '$id' AND pw = '$pw'";
             $result = $conn->query($sql);
-            if($result->num_rows > 0){
+            echo $conn->error;
+            if($result !== false && $result->num_rows > 0){
                 $_SESSION['USER'] = $id;
                 
             }

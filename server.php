@@ -6,11 +6,9 @@
     function CheckLogin(){       
         if(!isset($_SESSION['USER'])){ //not login
             echo "<script>location.replace('loginPage.php')</script>";
-            echo "실행!1";
         }
         else{ //already login
             echo "<script>location.replace('home.php')</script>";
-            echo "실행!2";
         }
         
     }

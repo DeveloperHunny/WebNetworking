@@ -1,34 +1,26 @@
-var loadDocBtn = document.getElementById("loadDoc");
-var content = document.getElementById("content");
+var trItems = document.querySelectorAll("main table tr:not(:nth-child(1))");
+var popUpLayer = document.querySelector(".layerDim");
+var popUpInputItems = document.querySelectorAll(".layerDim .popUp form input");
+var modifyBtn = document.querySelector(".layerDim .popUp form #submitBtn");
+var closeBtn = document.querySelector(".layerDim .popUp #closeBtn");
 
-loadDocBtn.addEventListener("click", clickBtn);
+modifyBtn.addEventListener('click', () => {
+    popUpLayer.style.visibility= "hidden";
+});
 
+closeBtn.addEventListener('click',() => {
+    popUpLayer.style.visibility="hidden";
+})
 
-
-function clickBtn() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            callbackFunction(xhttp);
-       }
-    };
-    xhttp.open("GET", "cd_catalog.xml", true);
-    xhttp.send();
+for(let i = 0; i < trItems.length; i++){
+    trItems[i].addEventListener('click',ClickRowItem);
 }
 
-function callbackFunction(xhttp){
-    let xmlDoc = xhttp.responseXML;
-    let tempArray = xmlDoc.getElementsByTagName("CD");
-    let tableContent = "<tr><th>TITLE</th><th>ARTIST</th><th>COUNTRY</th></tr>"
-    for(let i = 0; i < tempArray.length; i++){
-        let x =tempArray[i].getElementsByTagName("TITLE")[0];
-        let y =tempArray[i].getElementsByTagName("ARTIST")[0];
-        let z =tempArray[i].getElementsByTagName("COUNTRY")[0];
-        tableContent += "<tr>"
-        + " <td>" + x.childNodes[0].nodeValue+ "</td>"
-        + " <td>" + y.childNodes[0].nodeValue+ "</td>"
-        + " <td>" + z.childNodes[0].nodeValue+ "</td>"
-        + "</tr>"
+function ClickRowItem(){
+    popUpLayer.style.visibility= "visible";
+    var tableTr = $(this);
+    var selectedRow = tableTr.children();
+    for(let i = 0; i < popUpInputItems.length; i++){
+        popUpInputItems[i].value = selectedRow.eq(i).text();
     }
-    content.innerHTML = tableContent;
 }
